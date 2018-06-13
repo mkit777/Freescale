@@ -1,0 +1,169 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V8.20.2.14835/W32 for ARM       07/Apr/2018  20:23:05
+# Copyright 1999-2017 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        E:\workspace\LPLD_OSKinetis_V3\project\Overload\app\Server.c
+#    Command line =  
+#        -f C:\Users\JoyC\AppData\Local\Temp\EW7C9.tmp
+#        (E:\workspace\LPLD_OSKinetis_V3\project\Overload\app\Server.c -D
+#        LPLD_K60 -D USE_K60DZ10 -lCN
+#        E:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\FLASH\List -lB
+#        E:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\FLASH\List -o
+#        E:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\FLASH\Obj --no_cse
+#        --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering
+#        --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=None
+#        --dlib_config "D:\Program Files\IAR Systems\Embedded Workbench
+#        8.0\arm\INC\c\DLib_Config_Normal.h" -I
+#        E:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\app\ -I
+#        E:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\CPU\
+#        -I
+#        E:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\common\
+#        -I
+#        E:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\LPLD\
+#        -I
+#        E:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\LPLD\HW\
+#        -I
+#        E:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\LPLD\DEV\
+#        -I
+#        E:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\LPLD\FUNC\
+#        -I
+#        E:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\uCOS-II\Ports\
+#        -I
+#        E:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\uCOS-II\Source\
+#        -I
+#        E:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\FatFs\
+#        -I
+#        E:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\FatFs\option\
+#        -I
+#        E:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\USB\common\
+#        -I
+#        E:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\USB\driver\
+#        -I
+#        E:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\USB\descriptor\
+#        -I
+#        E:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\USB\class\
+#        -On -I "D:\Program Files\IAR Systems\Embedded Workbench
+#        8.0\arm\CMSIS\Include\" -D ARM_MATH_CM4)
+#    Locale       =  C
+#    List file    =  
+#        E:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\FLASH\List\Server.lst
+#    Object file  =  
+#        E:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\FLASH\Obj\Server.o
+#
+###############################################################################
+
+E:\workspace\LPLD_OSKinetis_V3\project\Overload\app\Server.c
+      1          #include "include.h"
+
+   \                                 In section .bss, align 4
+      2          FTM_InitTypeDef server_PWM_init_struct;
+   \                     server_PWM_init_struct:
+   \   00000000                      DS8 28
+      3          
+      4          
+
+   \                                 In section .text, align 2, keep-with-next
+      5          void Server_Init(void)
+      6          {
+   \                     Server_Init: (+1)
+   \   00000000   0xB5E0             PUSH     {R5-R7,LR}
+      7            server_PWM_init_struct.FTM_Ftmx=FTM2;
+   \   00000002   0x....             LDR.N    R0,??DataTable1  ;; 0x400b8000
+   \   00000004   0x....             LDR.N    R1,??DataTable1_1
+   \   00000006   0x6008             STR      R0,[R1, #+0]
+      8            server_PWM_init_struct.FTM_Mode=FTM_MODE_PWM;
+   \   00000008   0x2001             MOVS     R0,#+1
+   \   0000000A   0x....             LDR.N    R1,??DataTable1_1
+   \   0000000C   0x7108             STRB     R0,[R1, #+4]
+      9            server_PWM_init_struct.FTM_PwmFreq=Server_PWM_FREQ; // 50Hz
+   \   0000000E   0x2032             MOVS     R0,#+50
+   \   00000010   0x....             LDR.N    R1,??DataTable1_1
+   \   00000012   0x6088             STR      R0,[R1, #+8]
+     10            
+     11            LPLD_FTM_Init(server_PWM_init_struct);
+   \   00000014   0x....             LDR.N    R1,??DataTable1_1
+   \   00000016   0xB084             SUB      SP,SP,#+16
+   \   00000018   0x4668             MOV      R0,SP
+   \   0000001A   0x221C             MOVS     R2,#+28
+   \   0000001C   0x.... 0x....      BL       __aeabi_memcpy4
+   \   00000020   0xBC0F             POP      {R0-R3}
+   \   00000022   0x.... 0x....      BL       LPLD_FTM_Init
+     12            // FTM2 ch1@@@@@@,B19@@@@@@
+     13            LPLD_FTM_PWM_Enable(FTM2,FTM_Ch1,Server_PWM_MIDDLE,PTB19,ALIGN_LEFT); 
+   \   00000026   0x2028             MOVS     R0,#+40
+   \   00000028   0x9000             STR      R0,[SP, #+0]
+   \   0000002A   0x2333             MOVS     R3,#+51
+   \   0000002C   0xF44F 0x7248      MOV      R2,#+800
+   \   00000030   0x2101             MOVS     R1,#+1
+   \   00000032   0x....             LDR.N    R0,??DataTable1  ;; 0x400b8000
+   \   00000034   0x.... 0x....      BL       LPLD_FTM_PWM_Enable
+     14            Server_Drive(Server_PWM_MIDDLE);
+   \   00000038   0xF44F 0x7048      MOV      R0,#+800
+   \   0000003C   0x.... 0x....      BL       Server_Drive
+     15          }
+   \   00000040   0xBD07             POP      {R0-R2,PC}       ;; return
+     16          
+
+   \                                 In section .text, align 2, keep-with-next
+     17          void Server_Drive(uint32 error)
+     18          {
+   \                     Server_Drive: (+1)
+   \   00000000   0xB538             PUSH     {R3-R5,LR}
+   \   00000002   0x0004             MOVS     R4,R0
+     19            int duty = Server_PWM_MIDDLE + error*10;
+   \   00000004   0x250A             MOVS     R5,#+10
+   \   00000006   0xFB05 0xF504      MUL      R5,R5,R4
+   \   0000000A   0xF515 0x7548      ADDS     R5,R5,#+800
+     20            /*@@@@@@@@*/
+     21            LPLD_FTM_PWM_ChangeDuty(FTM2,FTM_Ch1,duty);
+   \   0000000E   0x002A             MOVS     R2,R5
+   \   00000010   0x2101             MOVS     R1,#+1
+   \   00000012   0x....             LDR.N    R0,??DataTable1  ;; 0x400b8000
+   \   00000014   0x.... 0x....      BL       LPLD_FTM_PWM_ChangeDuty
+     22          }
+   \   00000018   0xBD31             POP      {R0,R4,R5,PC}    ;; return
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1:
+   \   00000000   0x400B8000         DC32     0x400b8000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_1:
+   \   00000000   0x........         DC32     server_PWM_init_struct
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+      16   Server_Drive
+        16   -> LPLD_FTM_PWM_ChangeDuty
+      32   Server_Init
+        16   -> LPLD_FTM_Init
+        16   -> LPLD_FTM_PWM_Enable
+        16   -> Server_Drive
+        32   -> __aeabi_memcpy4
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable1
+       4  ??DataTable1_1
+      26  Server_Drive
+      66  Server_Init
+      28  server_PWM_init_struct
+
+ 
+  28 bytes in section .bss
+ 100 bytes in section .text
+ 
+ 100 bytes of CODE memory
+  28 bytes of DATA memory
+
+Errors: none
+Warnings: 1

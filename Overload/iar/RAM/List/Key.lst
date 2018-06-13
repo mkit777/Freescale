@@ -1,0 +1,265 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V8.20.2.14835/W32 for ARM       08/Mar/2018  21:10:48
+# Copyright 1999-2017 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  D:\workspace\LPLD_OSKinetis_V3\project\Overload\app\Key.c
+#    Command line =  
+#        -f C:\Users\JoyC\AppData\Local\Temp\EW304E.tmp
+#        (D:\workspace\LPLD_OSKinetis_V3\project\Overload\app\Key.c -D LPLD_K60
+#        -D USE_K60DZ10 -lCN
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\RAM\List -lB
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\RAM\List -o
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\RAM\Obj --no_cse
+#        --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering
+#        --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=None
+#        --dlib_config "D:\Program Files\IAR Systems\Embedded Workbench
+#        8.0\arm\INC\c\DLib_Config_Normal.h" -I
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\app\ -I
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\CPU\
+#        -I
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\common\
+#        -I
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\LPLD\
+#        -I
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\LPLD\HW\
+#        -I
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\LPLD\DEV\
+#        -I
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\LPLD\FUNC\
+#        -I
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\uCOS-II\Ports\
+#        -I
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\uCOS-II\Source\
+#        -I
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\FatFs\
+#        -I
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\FatFs\option\
+#        -I
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\USB\common\
+#        -I
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\USB\driver\
+#        -I
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\USB\descriptor\
+#        -I
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\USB\class\
+#        -Ol -I "D:\Program Files\IAR Systems\Embedded Workbench
+#        8.0\arm\CMSIS\Include\" -D ARM_MATH_CM4)
+#    Locale       =  C
+#    List file    =  
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\RAM\List\Key.lst
+#    Object file  =  
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\RAM\Obj\Key.o
+#
+###############################################################################
+
+D:\workspace\LPLD_OSKinetis_V3\project\Overload\app\Key.c
+      1          #include "include.h"
+      2          
+
+   \                                 In section .bss, align 4
+      3          GPIO_InitTypeDef key_init_struct;
+   \                     key_init_struct:
+   \   00000000                      DS8 20
+      4          
+
+   \                                 In section .bss, align 4
+      5          uint32 duty=0;
+   \                     duty:
+   \   00000000                      DS8 4
+      6          
+
+   \                                 In section .text, align 2, keep-with-next
+      7          void Key_Handler(void)
+      8          {
+   \                     Key_Handler: (+1)
+   \   00000000   0xB580             PUSH     {R7,LR}
+      9            DisableInterrupts;
+   \   00000002   0xB672             CPSID    I
+     10            if(LPLD_GPIO_IsPinxExt(PORTB,GPIO_Pin20))
+   \   00000004   0x....             LDR.N    R0,??DataTable1  ;; 0x4004a0a0
+   \   00000006   0x6800             LDR      R0,[R0, #+0]
+   \   00000008   0x02C0             LSLS     R0,R0,#+11
+   \   0000000A   0xD50D             BPL.N    ??Key_Handler_0
+     11            {
+     12              Time_Delay(100);
+   \   0000000C   0x2064             MOVS     R0,#+100
+   \   0000000E   0x.... 0x....      BL       Time_Delay
+     13              if(LPLD_GPIO_IsPinxExt(PORTB,GPIO_Pin20))
+   \   00000012   0x....             LDR.N    R0,??DataTable1  ;; 0x4004a0a0
+   \   00000014   0x6800             LDR      R0,[R0, #+0]
+   \   00000016   0x02C0             LSLS     R0,R0,#+11
+   \   00000018   0xD506             BPL.N    ??Key_Handler_0
+     14              {
+     15                duty-=100;
+   \   0000001A   0x....             LDR.N    R0,??DataTable1_1
+   \   0000001C   0x6800             LDR      R0,[R0, #+0]
+   \   0000001E   0x3864             SUBS     R0,R0,#+100
+   \   00000020   0x....             LDR.N    R1,??DataTable1_1
+   \   00000022   0x6008             STR      R0,[R1, #+0]
+     16                Server_Drive();
+   \   00000024   0x.... 0x....      BL       Server_Drive
+     17              }
+     18          
+     19            }
+     20            if(LPLD_GPIO_IsPinxExt(PORTB,GPIO_Pin21))
+   \                     ??Key_Handler_0: (+1)
+   \   00000028   0x....             LDR.N    R0,??DataTable1  ;; 0x4004a0a0
+   \   0000002A   0x6800             LDR      R0,[R0, #+0]
+   \   0000002C   0x0280             LSLS     R0,R0,#+10
+   \   0000002E   0xD50D             BPL.N    ??Key_Handler_1
+     21            {
+     22              Time_Delay(100);
+   \   00000030   0x2064             MOVS     R0,#+100
+   \   00000032   0x.... 0x....      BL       Time_Delay
+     23              if(LPLD_GPIO_IsPinxExt(PORTB,GPIO_Pin21))
+   \   00000036   0x....             LDR.N    R0,??DataTable1  ;; 0x4004a0a0
+   \   00000038   0x6800             LDR      R0,[R0, #+0]
+   \   0000003A   0x0280             LSLS     R0,R0,#+10
+   \   0000003C   0xD506             BPL.N    ??Key_Handler_1
+     24              {
+     25                duty+=100;
+   \   0000003E   0x....             LDR.N    R0,??DataTable1_1
+   \   00000040   0x6800             LDR      R0,[R0, #+0]
+   \   00000042   0x3064             ADDS     R0,R0,#+100
+   \   00000044   0x....             LDR.N    R1,??DataTable1_1
+   \   00000046   0x6008             STR      R0,[R1, #+0]
+     26                Server_Drive();    
+   \   00000048   0x.... 0x....      BL       Server_Drive
+     27              }
+     28          
+     29            }
+     30            if(LPLD_GPIO_IsPinxExt(PORTB,GPIO_Pin22))
+   \                     ??Key_Handler_1: (+1)
+   \   0000004C   0x....             LDR.N    R0,??DataTable1  ;; 0x4004a0a0
+   \   0000004E   0x6800             LDR      R0,[R0, #+0]
+   \   00000050   0x0240             LSLS     R0,R0,#+9
+   \   00000052   0xD50C             BPL.N    ??Key_Handler_2
+     31            {
+     32              Time_Delay(100);
+   \   00000054   0x2064             MOVS     R0,#+100
+   \   00000056   0x.... 0x....      BL       Time_Delay
+     33              if(LPLD_GPIO_IsPinxExt(PORTB,GPIO_Pin22))
+   \   0000005A   0x....             LDR.N    R0,??DataTable1  ;; 0x4004a0a0
+   \   0000005C   0x6800             LDR      R0,[R0, #+0]
+   \   0000005E   0x0240             LSLS     R0,R0,#+9
+   \   00000060   0xD505             BPL.N    ??Key_Handler_2
+     34              {
+     35                duty=5000;
+   \   00000062   0xF241 0x3088      MOVW     R0,#+5000
+   \   00000066   0x....             LDR.N    R1,??DataTable1_1
+   \   00000068   0x6008             STR      R0,[R1, #+0]
+     36                Server_Drive();    
+   \   0000006A   0x.... 0x....      BL       Server_Drive
+     37              }
+     38            }
+     39              EnableInterrupts;
+   \                     ??Key_Handler_2: (+1)
+   \   0000006E   0xB662             CPSIE    I
+     40          }
+   \   00000070   0xBD01             POP      {R0,PC}          ;; return
+     41          
+     42          
+
+   \                                 In section .text, align 2, keep-with-next
+     43          void Key_Init(void)
+     44          {
+   \                     Key_Init: (+1)
+   \   00000000   0xB580             PUSH     {R7,LR}
+     45            key_init_struct.GPIO_PTx=PTB;
+   \   00000002   0x....             LDR.N    R0,??DataTable1_2  ;; 0x400ff040
+   \   00000004   0x....             LDR.N    R1,??DataTable1_3
+   \   00000006   0x6008             STR      R0,[R1, #+0]
+     46            key_init_struct.GPIO_Pins=GPIO_Pin20|GPIO_Pin21|GPIO_Pin22;
+   \   00000008   0xF45F 0x00E0      MOVS     R0,#+7340032
+   \   0000000C   0x....             LDR.N    R1,??DataTable1_3
+   \   0000000E   0x6048             STR      R0,[R1, #+4]
+     47            key_init_struct.GPIO_Dir=DIR_INPUT;
+   \   00000010   0x2000             MOVS     R0,#+0
+   \   00000012   0x....             LDR.N    R1,??DataTable1_3
+   \   00000014   0x7308             STRB     R0,[R1, #+12]
+     48            key_init_struct.GPIO_PinControl=IRQC_FA;
+   \   00000016   0xF45F 0x2020      MOVS     R0,#+655360
+   \   0000001A   0x....             LDR.N    R1,??DataTable1_3
+   \   0000001C   0x6088             STR      R0,[R1, #+8]
+     49            key_init_struct.GPIO_Isr=Key_Handler;
+   \   0000001E   0x....             LDR.N    R0,??DataTable1_4
+   \   00000020   0x....             LDR.N    R1,??DataTable1_3
+   \   00000022   0x6108             STR      R0,[R1, #+16]
+     50            LPLD_GPIO_Init(key_init_struct);
+   \   00000024   0x....             LDR.N    R1,??DataTable1_3
+   \   00000026   0xB084             SUB      SP,SP,#+16
+   \   00000028   0x4668             MOV      R0,SP
+   \   0000002A   0x2214             MOVS     R2,#+20
+   \   0000002C   0x.... 0x....      BL       __aeabi_memcpy4
+   \   00000030   0xBC0F             POP      {R0-R3}
+   \   00000032   0x.... 0x....      BL       LPLD_GPIO_Init
+     51            LPLD_GPIO_EnableIrq(key_init_struct);
+   \   00000036   0x....             LDR.N    R1,??DataTable1_3
+   \   00000038   0xB084             SUB      SP,SP,#+16
+   \   0000003A   0x4668             MOV      R0,SP
+   \   0000003C   0x2214             MOVS     R2,#+20
+   \   0000003E   0x.... 0x....      BL       __aeabi_memcpy4
+   \   00000042   0xBC0F             POP      {R0-R3}
+   \   00000044   0x.... 0x....      BL       LPLD_GPIO_EnableIrq
+     52          }
+   \   00000048   0xBD01             POP      {R0,PC}          ;; return
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1:
+   \   00000000   0x4004A0A0         DC32     0x4004a0a0
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_1:
+   \   00000000   0x........         DC32     duty
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_2:
+   \   00000000   0x400FF040         DC32     0x400ff040
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_3:
+   \   00000000   0x........         DC32     key_init_struct
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_4:
+   \   00000000   0x........         DC32     Key_Handler
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       8   Key_Handler
+         8   -> Server_Drive
+         8   -> Time_Delay
+      24   Key_Init
+         8   -> LPLD_GPIO_EnableIrq
+         8   -> LPLD_GPIO_Init
+        24   -> __aeabi_memcpy4
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable1
+       4  ??DataTable1_1
+       4  ??DataTable1_2
+       4  ??DataTable1_3
+       4  ??DataTable1_4
+     114  Key_Handler
+      74  Key_Init
+       4  duty
+      20  key_init_struct
+
+ 
+  24 bytes in section .bss
+ 208 bytes in section .text
+ 
+ 208 bytes of CODE memory
+  24 bytes of DATA memory
+
+Errors: none
+Warnings: none

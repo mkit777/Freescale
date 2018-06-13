@@ -1,0 +1,534 @@
+###############################################################################
+#
+# IAR ELF Linker V8.20.2.14835/W32 for ARM                09/Jun/2018  07:35:31
+# Copyright 2007-2017 IAR Systems AB.
+#
+#    Output file  =  
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload3\iar\FLASH\Exe\Overload_K60DZ10.out
+#    Map file     =  
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload3\iar\FLASH\List\Overload_K60DZ10.map
+#    Command line =  
+#        -f C:\Users\JoyC\AppData\Local\Temp\EWDB25.tmp
+#        (D:\workspace\LPLD_OSKinetis_V3\project\Overload3\iar\FLASH\Obj\alloc.o
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload3\iar\FLASH\Obj\assert.o
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload3\iar\FLASH\Obj\Camera.o
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload3\iar\FLASH\Obj\Control.o
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload3\iar\FLASH\Obj\core.o
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload3\iar\FLASH\Obj\Handsome.o
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload3\iar\FLASH\Obj\HW_ADC.o
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload3\iar\FLASH\Obj\HW_DMA.o
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload3\iar\FLASH\Obj\HW_FTM.o
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload3\iar\FLASH\Obj\HW_GPIO.o
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload3\iar\FLASH\Obj\HW_MCG.o
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload3\iar\FLASH\Obj\HW_PIT.o
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload3\iar\FLASH\Obj\HW_UART.o
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload3\iar\FLASH\Obj\io.o
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload3\iar\FLASH\Obj\Key.o
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload3\iar\FLASH\Obj\OLED.o
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload3\iar\FLASH\Obj\Overload.o
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload3\iar\FLASH\Obj\printf.o
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload3\iar\FLASH\Obj\queue.o
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload3\iar\FLASH\Obj\relocate.o
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload3\iar\FLASH\Obj\startup_K60DZ10.o
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload3\iar\FLASH\Obj\stdlib.o
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload3\iar\FLASH\Obj\system_MK60.o
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload3\iar\FLASH\Obj\uif.o
+#        --redirect _Printf=_PrintfFullNoMb --redirect _Scanf=_ScanfFullNoMb -o
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload3\iar\FLASH\Exe\Overload_K60DZ10.out
+#        --map
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload3\iar\FLASH\List\Overload_K60DZ10.map
+#        --config
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload3\iar\..\..\..\lib\iar_config_files\LPLD_K60DN512_FLASH.icf
+#        --semihosting --entry __iar_program_start "D:\Program Files\IAR
+#        Systems\Embedded Workbench 8.0\arm\CMSIS\Lib\IAR\iar_cortexM4l_math.a"
+#        --merge_duplicate_sections --vfe --text_out locale)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because no calls to memory allocation
+functions were found in the application outside of system library
+functions, and there are calls to deallocation functions in the
+application.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at 0x00000000 { ro section .intvec };
+"A1":  place at 0x00000410 { ro section .noinit };
+define block CodeRelocate { section .textrw_init };
+"P1":  place in [from 0x00000000 to 0x00080000] { ro, block CodeRelocate };
+define block CodeRelocateRam { section .textrw };
+define block CSTACK with size = 4K, alignment = 8 { };
+define block HEAP with size = 512, alignment = 8 { };
+"P2":  place in [from 0x1fff0410 to 0x20010000] {
+          rw, block CodeRelocateRam, block CSTACK, block HEAP };
+initialize manually with packing = copy, complex ranges { section .data };
+initialize manually with packing = copy, complex ranges { section .textrw };
+
+  Section              Kind        Address    Size  Object
+  -------              ----        -------    ----  ------
+"A0":                                        0x400
+  .intvec              ro code  0x00000000   0x400  startup_K60DZ10.o [1]
+                              - 0x00000400   0x400
+
+"P1", part 1 of 2:                             0x0
+  .rodata              const    0x00000400     0x0  zero_init3.o [5]
+
+"A1":                                         0x14
+  .noinit              ro code  0x00000410    0x10  startup_K60DZ10.o [1]
+  .noinit              ro code  0x00000420     0x4  startup_K60DZ10.o [1]
+                              - 0x00000424    0x14
+
+"P1", part 2 of 2:                          0x2dc8
+  .text                ro code  0x00000424   0x6c4  HW_FTM.o [1]
+  .text                ro code  0x00000ae8    0x86  ABImemcpy.o [5]
+  .text                ro code  0x00000b70   0x5ac  core.o [1]
+  .text                ro code  0x0000111c   0x580  OLED.o [1]
+  .text                ro code  0x0000169c    0xec  Handsome.o [1]
+  .text                ro code  0x00001788    0x24  S32ToFlt.o [4]
+  .text                ro code  0x000017ac    0xe2  FltAdd.o [4]
+  .text                ro code  0x00001890    0x2a  FltToS32.o [4]
+  .text                ro code  0x000018bc   0x1c4  Control.o [1]
+  .text                ro code  0x00001a80     0x8  abs.o [3]
+  .text                ro code  0x00001a88   0x492  printf.o [1]
+  .text                ro code  0x00001f1c   0x18c  HW_GPIO.o [1]
+  .text                ro code  0x000020a8    0x74  FltSub.o [4]
+  .text                ro code  0x0000211c   0x110  HW_PIT.o [1]
+  .text                ro code  0x0000222c    0x16  stdlib.o [1]
+  .text                ro code  0x00002244   0x580  HW_UART.o [1]
+  .text                ro code  0x000027c4   0x274  HW_DMA.o [1]
+  .text                ro code  0x00002a38   0x1ec  Camera.o [1]
+  Veneer               ro code  0x00002c24     0x8  - Linker created -
+  .text                ro code  0x00002c2c   0x148  HW_MCG.o [1]
+  .text                ro code  0x00002d74    0xd8  Key.o [1]
+  .text                ro code  0x00002e4c    0xd4  system_MK60.o [1]
+  .text                ro code  0x00002f20    0x9c  relocate.o [1]
+  .data_init                    0x00002fbc    0xcc  <Block>
+    Initializer bytes  const    0x00002fbc    0xcc  <for .data-1>
+  CodeRelocate                  0x00003088    0x48  <Block>
+    Initializer bytes  const    0x00003088    0x48  <for CodeRelocateRam-1>
+  .text                ro code  0x000030d0    0x40  Overload.o [1]
+  .text                ro code  0x00003110    0x40  zero_init3.o [5]
+  .text                ro code  0x00003150    0x28  data_init.o [5]
+  .iar.init_table      const    0x00003178    0x10  - Linker created -
+  .text                ro code  0x00003188    0x1e  cmain.o [5]
+  .text                ro code  0x000031a6     0x4  low_level_init.o [3]
+  .text                ro code  0x000031aa     0x4  exit.o [3]
+  .text                ro code  0x000031b0     0xa  cexit.o [5]
+  .text                ro code  0x000031bc    0x14  exit.o [6]
+  .text                ro code  0x000031d0    0x10  HW_ADC.o [1]
+  .text                ro code  0x000031e0     0xc  cstartup_M.o [5]
+                              - 0x000031ec  0x2dc8
+
+"P2", part 1 of 3:                           0x114
+  .data                         0x1fff0410    0xcc  <Block>
+    .data-1                     0x1fff0410    0xcc  <Init block>
+      .data            inited   0x1fff0410    0x80  core.o [1]
+      .data            inited   0x1fff0490     0xc  core.o [1]
+      .data            inited   0x1fff049c    0x14  core.o [1]
+      .data            inited   0x1fff04b0     0x4  HW_MCG.o [1]
+      .data            inited   0x1fff04b4     0x4  HW_MCG.o [1]
+      .data            inited   0x1fff04b8     0x4  HW_MCG.o [1]
+      .data            inited   0x1fff04bc     0x4  HW_MCG.o [1]
+      .data            inited   0x1fff04c0     0x4  Key.o [1]
+      .data            inited   0x1fff04c4     0x4  system_MK60.o [1]
+      .data            inited   0x1fff04c8    0x14  core.o [1]
+  CodeRelocateRam               0x1fff04dc    0x48  <Block>
+    CodeRelocateRam-1           0x1fff04dc    0x48  <Init block>
+      .textrw          inited   0x1fff04dc    0x48  HW_MCG.o [1]
+                              - 0x1fff0524   0x114
+
+"P2", part 2 of 3:                          0x6688
+  .bss                          0x1fff0524  0x6688  <Block>
+    .bss               zero     0x1fff0524    0x50  Camera.o [1]
+    .bss               zero     0x1fff0574    0x1c  Camera.o [1]
+    .bss               zero     0x1fff0590  0x62c0  Camera.o [1]
+    .bss               zero     0x1fff6850     0xc  Camera.o [1]
+    .bss               zero     0x1fff685c    0x2c  Camera.o [1]
+    .bss               zero     0x1fff6888    0x1c  Control.o [1]
+    .bss               zero     0x1fff68a4    0x1c  Control.o [1]
+    .bss               zero     0x1fff68c0     0xc  Control.o [1]
+    .bss               zero     0x1fff68cc    0x1c  Control.o [1]
+    .bss               zero     0x1fff68e8    0x14  Control.o [1]
+    .bss               zero     0x1fff68fc    0xcc  core.o [1]
+    .bss               zero     0x1fff69c8    0xcc  core.o [1]
+    .bss               zero     0x1fff6a94     0x8  core.o [1]
+    .bss               zero     0x1fff6a9c    0x50  Handsome.o [1]
+    .bss               zero     0x1fff6aec     0x8  HW_ADC.o [1]
+    .bss               zero     0x1fff6af4    0x40  HW_DMA.o [1]
+    .bss               zero     0x1fff6b34     0xc  HW_FTM.o [1]
+    .bss               zero     0x1fff6b40    0x14  HW_GPIO.o [1]
+    .bss               zero     0x1fff6b54    0x10  HW_PIT.o [1]
+    .bss               zero     0x1fff6b64    0x30  HW_UART.o [1]
+    .bss               zero     0x1fff6b94    0x14  Key.o [1]
+    .bss               zero     0x1fff6ba8     0x1  core.o [1]
+                              - 0x1fff6bac  0x6688
+
+"P2", part 3 of 3:                          0x1000
+  CSTACK                        0x1fff6bb0  0x1000  <Block>
+    CSTACK             uninit   0x1fff6bb0  0x1000  <Block tail>
+                              - 0x1fff7bb0  0x1000
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x6685:
+          0x1fff0524  0x6685
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module             ro code  rw code  ro data  rw data
+    ------             -------  -------  -------  -------
+D:\workspace\LPLD_OSKinetis_V3\project\Overload3\iar\FLASH\Obj: [1]
+    Camera.o               492                     25 444
+    Control.o              452                        116
+    HW_ADC.o                16                          8
+    HW_DMA.o               628                         64
+    HW_FTM.o             1 732                         12
+    HW_GPIO.o              396                         20
+    HW_MCG.o               328       72       88       16
+    HW_PIT.o               272                         16
+    HW_UART.o            1 408                         48
+    Handsome.o             236                         80
+    Key.o                  216                 4       24
+    OLED.o               1 408
+    Overload.o              64
+    core.o               1 452               180      597
+    printf.o             1 170
+    relocate.o             156
+    startup_K60DZ10.o    1 044
+    stdlib.o                22
+    system_MK60.o          212                 4        4
+    -----------------------------------------------------
+    Total:              11 704       72      276   26 449
+
+command line: [2]
+    -----------------------------------------------------
+    Total:
+
+dl7M_tln.a: [3]
+    abs.o                    8
+    exit.o                   4
+    low_level_init.o         4
+    -----------------------------------------------------
+    Total:                  16
+
+m7M_tl.a: [4]
+    FltAdd.o               226
+    FltSub.o               116
+    FltToS32.o              42
+    S32ToFlt.o              36
+    -----------------------------------------------------
+    Total:                 420
+
+rt7M_tl.a: [5]
+    ABImemcpy.o            134
+    cexit.o                 10
+    cmain.o                 30
+    cstartup_M.o            12
+    data_init.o             40
+    zero_init3.o            64
+    -----------------------------------------------------
+    Total:                 290
+
+shb_l.a: [6]
+    exit.o                  20
+    -----------------------------------------------------
+    Total:                  20
+
+    Gaps                    14
+    Linker created           8                16    4 096
+---------------------------------------------------------
+    Grand Total:        12 472       72      292   30 545
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address    Size  Type      Object
+-----                      -------    ----  ----      ------
+.bss$$Base              0x1fff0524           --   Gb  - Linker created -
+.bss$$Limit             0x1fff6bac           --   Gb  - Linker created -
+.data$$Base             0x1fff0410           --   Gb  - Linker created -
+.data$$Limit            0x1fff04dc           --   Gb  - Linker created -
+.data_init$$Base        0x00002fbc           --   Gb  - Linker created -
+.data_init$$Limit       0x00003088           --   Gb  - Linker created -
+.iar.init_table$$Base   0x00003178           --   Gb  - Linker created -
+.iar.init_table$$Limit  0x00003188           --   Gb  - Linker created -
+?main                   0x00003189          Code  Gb  cmain.o [5]
+ADC0_IRQHandler         0x000031d1     0x6  Code  Gb  HW_ADC.o [1]
+ADC1_IRQHandler         0x000031d7     0x6  Code  Gb  HW_ADC.o [1]
+ADC_ISR                 0x1fff6aec     0x8  Data  Gb  HW_ADC.o [1]
+Blue_Init               0x00002bc5    0x28  Code  Gb  Camera.o [1]
+CSTACK$$Base            0x1fff6bb0           --   Gb  - Linker created -
+CSTACK$$Limit           0x1fff7bb0           --   Gb  - Linker created -
+Camera_DMA_Init         0x00002b71    0x42  Code  Gb  Camera.o [1]
+Camera_GPIO_Init        0x00002ac5    0xac  Code  Gb  Camera.o [1]
+Camera_Handler          0x00002a51    0x74  Code  Gb  Camera.o [1]
+Camera_Init             0x00002bb3    0x12  Code  Gb  Camera.o [1]
+Check_Stop_Line         0x00000b89    0x8c  Code  Gb  core.o [1]
+CodeRelocate$$Base      0x00003088           --   Gb  - Linker created -
+CodeRelocate$$Limit     0x000030d0           --   Gb  - Linker created -
+CodeRelocateRam$$Base   0x1fff04dc           --   Gb  - Linker created -
+CodeRelocateRam$$Limit  0x1fff0524           --   Gb  - Linker created -
+DMA0_IRQHandler         0x000028e1    0x14  Code  Gb  HW_DMA.o [1]
+DMA10_IRQHandler        0x000029a9    0x14  Code  Gb  HW_DMA.o [1]
+DMA11_IRQHandler        0x000029bd    0x14  Code  Gb  HW_DMA.o [1]
+DMA12_IRQHandler        0x000029d1    0x14  Code  Gb  HW_DMA.o [1]
+DMA13_IRQHandler        0x000029e5    0x14  Code  Gb  HW_DMA.o [1]
+DMA14_IRQHandler        0x000029f9    0x14  Code  Gb  HW_DMA.o [1]
+DMA15_IRQHandler        0x00002a0d    0x14  Code  Gb  HW_DMA.o [1]
+DMA1_IRQHandler         0x000028f5    0x14  Code  Gb  HW_DMA.o [1]
+DMA2_IRQHandler         0x00002909    0x14  Code  Gb  HW_DMA.o [1]
+DMA3_IRQHandler         0x0000291d    0x14  Code  Gb  HW_DMA.o [1]
+DMA4_IRQHandler         0x00002931    0x14  Code  Gb  HW_DMA.o [1]
+DMA5_IRQHandler         0x00002945    0x14  Code  Gb  HW_DMA.o [1]
+DMA6_IRQHandler         0x00002959    0x14  Code  Gb  HW_DMA.o [1]
+DMA7_IRQHandler         0x0000296d    0x14  Code  Gb  HW_DMA.o [1]
+DMA8_IRQHandler         0x00002981    0x14  Code  Gb  HW_DMA.o [1]
+DMA9_IRQHandler         0x00002995    0x14  Code  Gb  HW_DMA.o [1]
+DMA_ISR                 0x1fff6af4    0x40  Data  Gb  HW_DMA.o [1]
+DMA_init_struct         0x1fff685c    0x2c  Data  Gb  Camera.o [1]
+Data_init_struct        0x1fff0524    0x14  Data  Gb  Camera.o [1]
+DefaultISR              0x00002f1f     0x2  Code  Gb  system_MK60.o [1]
+Dir_Kd                  0x1fff049e     0x1  Data  Gb  core.o [1]
+Dir_Ki                  0x1fff049d     0x1  Data  Gb  core.o [1]
+Dir_Kp                  0x1fff049c     0x1  Data  Gb  core.o [1]
+Direction_Control       0x00000f1b    0x48  Code  Gb  core.o [1]
+Direction_Control_Out   0x1fff04a8     0x4  Data  Gb  core.o [1]
+Direction_Error         0x1fff04a0     0x2  Data  Gb  core.o [1]
+Direction_Error_Last    0x1fff04a2     0x2  Data  Gb  core.o [1]
+Direction_Error_Last2   0x1fff04a4     0x2  Data  Gb  core.o [1]
+Encoder_Init            0x00001a75     0xc  Code  Gb  Control.o [1]
+Encoder_PIT_Init        0x00001a1b    0x36  Code  Gb  Control.o [1]
+Encoder_PWM_Init        0x000019bd    0x30  Code  Gb  Control.o [1]
+Error                   0x1fff0480     0x4  Data  Gb  core.o [1]
+Error_Last              0x1fff0484     0x4  Data  Gb  core.o [1]
+Error_count0            0x00000e7b    0x48  Code  Gb  core.o [1]
+Error_count1            0x00000ec3     0x8  Code  Gb  core.o [1]
+Error_count2            0x00000ecb     0x8  Code  Gb  core.o [1]
+Error_count3            0x00000ed3    0x48  Code  Gb  core.o [1]
+F6x8                    0x00001474   0x228  Data  Gb  OLED.o [1]
+FTM0_IRQHandler         0x00000aad     0x6  Code  Gb  HW_FTM.o [1]
+FTM1_IRQHandler         0x00000ab3     0x6  Code  Gb  HW_FTM.o [1]
+FTM2_IRQHandler         0x00000ab9     0x6  Code  Gb  HW_FTM.o [1]
+FTM_ISR                 0x1fff6b34     0xc  Data  Gb  HW_FTM.o [1]
+Field_Count             0x1fff6854     0x4  Data  Gb  Camera.o [1]
+GPIO_ISR                0x1fff6b40    0x14  Data  Gb  HW_GPIO.o [1]
+Get_Bound_Qian          0x00000c15   0x1e2  Code  Gb  core.o [1]
+HRF_init_struct         0x1fff054c    0x14  Data  Gb  Camera.o [1]
+HardFault_Handler       0x00002f1d     0x2  Code  Gb  system_MK60.o [1]
+Has_Img                 0x1fff6858     0x4  Data  Gb  Camera.o [1]
+Img_Data                0x1fff0590  0x62c0  Data  Gb  Camera.o [1]
+Img_Handler             0x00000b71    0x18  Code  Gb  core.o [1]
+Key_Handler             0x00002d75    0x4e  Code  Gb  Key.o [1]
+Key_Init                0x00002de7    0x42  Code  Gb  Key.o [1]
+LCD_CLS                 0x000011f1    0x3c  Code  Gb  OLED.o [1]
+LCD_DLY_ms              0x0000122d    0x16  Code  Gb  OLED.o [1]
+LCD_Fill                0x000011b3    0x3e  Code  Gb  OLED.o [1]
+LCD_Flush               0x00002dc3    0x24  Code  Gb  Key.o [1]
+LCD_GPIO_Init           0x00001243    0x34  Code  Gb  OLED.o [1]
+LCD_Init                0x00001277    0xd4  Code  Gb  OLED.o [1]
+LCD_P6x8Str             0x0000134b    0x64  Code  Gb  OLED.o [1]
+LCD_Set_Pos             0x00001189    0x2a  Code  Gb  OLED.o [1]
+LCD_WrCmd               0x00001155    0x34  Code  Gb  OLED.o [1]
+LCD_WrDat               0x0000111d    0x36  Code  Gb  OLED.o [1]
+LEFT_Flag               0x1fff0490     0x1  Data  Gb  core.o [1]
+LPLD_DMA_Init           0x000027c5   0x11c  Code  Gb  HW_DMA.o [1]
+LPLD_FTM_DEC_Init       0x00000aa5     0x8  Code  Lc  HW_FTM.o [1]
+LPLD_FTM_GetCounter     0x00000577     0x6  Code  Gb  HW_FTM.o [1]
+LPLD_FTM_IC_Init        0x00000671    0x74  Code  Lc  HW_FTM.o [1]
+LPLD_FTM_Init           0x00000425    0xe6  Code  Gb  HW_FTM.o [1]
+LPLD_FTM_PWM_ChangeDuty
+                        0x0000054b    0x2c  Code  Gb  HW_FTM.o [1]
+LPLD_FTM_PWM_Enable     0x0000050b    0x40  Code  Gb  HW_FTM.o [1]
+LPLD_FTM_PWM_Init       0x000005a7    0xca  Code  Lc  HW_FTM.o [1]
+LPLD_FTM_PinInit        0x000006e9   0x382  Code  Lc  HW_FTM.o [1]
+LPLD_FTM_QD_Enable      0x0000057d    0x2a  Code  Gb  HW_FTM.o [1]
+LPLD_FTM_QD_Init        0x00000a6d    0x38  Code  Lc  HW_FTM.o [1]
+LPLD_GPIO_EnableIrq     0x00001fcb    0x3e  Code  Gb  HW_GPIO.o [1]
+LPLD_GPIO_Init          0x00001f35    0x96  Code  Gb  HW_GPIO.o [1]
+LPLD_PIT_EnableIrq      0x0000219b    0x16  Code  Gb  HW_PIT.o [1]
+LPLD_PIT_Init           0x00002135    0x66  Code  Gb  HW_PIT.o [1]
+LPLD_PLL_Setup          0x00002c2d   0x148  Code  Gb  HW_MCG.o [1]
+LPLD_Set_SYS_DIV        0x1fff04dd    0x48  Code  Gb  HW_MCG.o [1]
+LPLD_UART_Init          0x00002245   0x364  Code  Gb  HW_UART.o [1]
+Last_QD_Result          0x1fff68c8     0x4  Data  Gb  Control.o [1]
+Led_Init                0x0000169d    0xa4  Code  Gb  Handsome.o [1]
+Led_Off                 0x00001755    0x14  Code  Gb  Handsome.o [1]
+Led_On                  0x00001741    0x14  Code  Gb  Handsome.o [1]
+Left_Bound              0x1fff68fc    0xcc  Data  Gb  core.o [1]
+MID_LINE                0x1fff0488     0x4  Data  Gb  core.o [1]
+Mid_Bound               0x1fff0414    0x68  Data  Gb  core.o [1]
+Motor_Drive             0x0000190b    0x5a  Code  Gb  Control.o [1]
+Motor_Init              0x000018bd    0x4e  Code  Gb  Control.o [1]
+No_Bound                0x1fff0492     0x1  Data  Gb  core.o [1]
+PCLK_init_struct        0x1fff0538    0x14  Data  Gb  Camera.o [1]
+PIT0_IRQHandler         0x000021b1    0x14  Code  Gb  HW_PIT.o [1]
+PIT1_IRQHandler         0x000021c5    0x14  Code  Gb  HW_PIT.o [1]
+PIT2_IRQHandler         0x000021d9    0x14  Code  Gb  HW_PIT.o [1]
+PIT3_IRQHandler         0x000021ed    0x14  Code  Gb  HW_PIT.o [1]
+PIT_ISR                 0x1fff6b54    0x10  Data  Gb  HW_PIT.o [1]
+PORTA_IRQHandler        0x00002009    0x12  Code  Gb  HW_GPIO.o [1]
+PORTB_IRQHandler        0x0000201b    0x12  Code  Gb  HW_GPIO.o [1]
+PORTC_IRQHandler        0x0000202d    0x12  Code  Gb  HW_GPIO.o [1]
+PORTD_IRQHandler        0x0000203f    0x12  Code  Gb  HW_GPIO.o [1]
+PORTE_IRQHandler        0x00002051    0x12  Code  Gb  HW_GPIO.o [1]
+QD_Interval             0x1fff68c0     0x4  Data  Gb  Control.o [1]
+QD_Result               0x1fff68c4     0x4  Data  Gb  Control.o [1]
+RIGHT_Flag              0x1fff0491     0x1  Data  Gb  core.o [1]
+Region$$Table$$Base     0x00003178           --   Gb  - Linker created -
+Region$$Table$$Limit    0x00003188           --   Gb  - Linker created -
+Right_Bound             0x1fff69c8    0xcc  Data  Gb  core.o [1]
+Row_Count               0x1fff6850     0x4  Data  Gb  Camera.o [1]
+Server_Drive            0x0000199f    0x1e  Code  Gb  Control.o [1]
+Server_Init             0x00001965    0x3a  Code  Gb  Control.o [1]
+Show_Img                0x000013af    0xb0  Code  Gb  OLED.o [1]
+Show_Num                0x00001031    0x84  Code  Gb  core.o [1]
+Spe_Kd                  0x1fff04ca     0x1  Data  Gb  core.o [1]
+Spe_Ki                  0x1fff04c9     0x1  Data  Gb  core.o [1]
+Spe_Kp                  0x1fff04c8     0x1  Data  Gb  core.o [1]
+Spe_nD                  0x1fff04d6     0x2  Data  Gb  core.o [1]
+Spe_nI                  0x1fff04d4     0x2  Data  Gb  core.o [1]
+Spe_nI_Last             0x1fff04d8     0x2  Data  Gb  core.o [1]
+Spe_nP                  0x1fff04d2     0x2  Data  Gb  core.o [1]
+Speed_Control           0x00000f63    0xce  Code  Gb  core.o [1]
+Speed_Control_Out       0x1fff04cc     0x2  Data  Gb  core.o [1]
+Speed_Error             0x1fff04d0     0x2  Data  Gb  core.o [1]
+Speed_Error_Last        0x1fff04da     0x2  Data  Gb  core.o [1]
+Speed_Set               0x1fff04ce     0x2  Data  Gb  core.o [1]
+SystemCoreClock         0x1fff04c4     0x4  Data  Gb  system_MK60.o [1]
+SystemCoreClockUpdate   0x00002ed5    0x20  Code  Gb  system_MK60.o [1]
+SystemInit              0x00002e4d    0x88  Code  Gb  system_MK60.o [1]
+UART0_ERR_IRQHandler    0x000027b9     0x2  Code  Gb  HW_UART.o [1]
+UART0_IRQHandler        0x000025a9    0x4a  Code  Gb  HW_UART.o [1]
+UART1_ERR_IRQHandler    0x000027bb     0x2  Code  Gb  HW_UART.o [1]
+UART1_IRQHandler        0x000025f3    0x4a  Code  Gb  HW_UART.o [1]
+UART2_ERR_IRQHandler    0x000027bd     0x2  Code  Gb  HW_UART.o [1]
+UART2_IRQHandler        0x0000263d    0x4a  Code  Gb  HW_UART.o [1]
+UART3_ERR_IRQHandler    0x000027bf     0x2  Code  Gb  HW_UART.o [1]
+UART3_IRQHandler        0x00002687    0x4a  Code  Gb  HW_UART.o [1]
+UART4_ERR_IRQHandler    0x000027c1     0x2  Code  Gb  HW_UART.o [1]
+UART4_IRQHandler        0x000026d1    0x4a  Code  Gb  HW_UART.o [1]
+UART5_ERR_IRQHandler    0x000027c3     0x2  Code  Gb  HW_UART.o [1]
+UART5_IRQHandler        0x0000271b    0x4a  Code  Gb  HW_UART.o [1]
+UART_R_ISR              0x1fff6b64    0x18  Data  Gb  HW_UART.o [1]
+UART_T_ISR              0x1fff6b7c    0x18  Data  Gb  HW_UART.o [1]
+VSY_init_struct         0x1fff0560    0x14  Data  Gb  Camera.o [1]
+YUZHI                   0x1fff047c     0x4  Data  Gb  core.o [1]
+__BOOT_STACK_ADDRESS {Abs}
+                        0x2000fff8          Data  Gb  command line/config [2]
+__NVIC_EnableIRQ        0x00002a39    0x18  Code  Lc  Camera.o [1]
+__NVIC_EnableIRQ        0x00001f1d    0x18  Code  Lc  HW_GPIO.o [1]
+__NVIC_EnableIRQ        0x0000211d    0x18  Code  Lc  HW_PIT.o [1]
+__VECTOR_RAM {Abs}      0x1fff0000          Data  Gb  command line/config [2]
+__VECTOR_TABLE {Abs}    0x00000000          Data  Gb  command line/config [2]
+__Vectors               0x00000000           --   Gb  startup_K60DZ10.o [1]
+__Vectors_End           0x00000400          Data  Gb  startup_K60DZ10.o [1]
+__Vectors_Size {Abs}    0x00000400           --   Gb  startup_K60DZ10.o [1]
+__aeabi_f2iz            0x00001891          Code  Gb  FltToS32.o [4]
+__aeabi_fadd            0x000017ad          Code  Gb  FltAdd.o [4]
+__aeabi_i2f             0x00001789          Code  Gb  S32ToFlt.o [4]
+__aeabi_memcpy4         0x00000ae9          Code  Gb  ABImemcpy.o [5]
+__aeabi_memcpy8         0x00000ae9          Code  Gb  ABImemcpy.o [5]
+__cmain                 0x00003189          Code  Gb  cmain.o [5]
+__exit                  0x000031bd    0x14  Code  Gb  exit.o [6]
+__iar_data_init3        0x00003151    0x28  Code  Gb  data_init.o [5]
+__iar_fadd              0x000020a9          Code  Gb  FltSub.o [4]
+__iar_fsub              0x000017b9          Code  Gb  FltAdd.o [4]
+__iar_fsubStart         0x000017c9          Code  Gb  FltAdd.o [4]
+__iar_program_start     0x000031e1          Code  Gb  cstartup_M.o [5]
+__iar_systems$$module {Abs}
+                        0x00000001          Data  Gb  command line/config [2]
+__iar_zero_init3        0x00003111    0x40  Code  Gb  zero_init3.o [5]
+__low_level_init        0x000031a7     0x4  Code  Gb  low_level_init.o [3]
+__vector_table          0x00000000          Data  Gb  startup_K60DZ10.o [1]
+__vector_table_0x1c     0x0000001c          Data  Gb  startup_K60DZ10.o [1]
+_call_main              0x00003195          Code  Gb  cmain.o [5]
+_exit                   0x000031b1          Code  Gb  cexit.o [5]
+_main                   0x000031a3          Code  Gb  cmain.o [5]
+abs                     0x00001a81     0x8  Code  Gb  abs.o [3]
+check_left_bound        0x00000e2f    0x36  Code  Gb  core.o [1]
+check_right_bound       0x00000df7    0x38  Code  Gb  core.o [1]
+common_relocate         0x00002f21    0x9c  Code  Gb  relocate.o [1]
+count                   0x1fff0410     0x1  Data  Gb  core.o [1]
+duty                    0x1fff04c0     0x4  Data  Gb  Key.o [1]
+encoder_pit_init_struct
+                        0x1fff68e8    0x14  Data  Gb  Control.o [1]
+encoder_pwm_init_struct
+                        0x1fff68cc    0x1c  Data  Gb  Control.o [1]
+exit                    0x000031ab     0x4  Code  Gb  exit.o [3]
+g_bus_clock             0x1fff04b4     0x4  Data  Gb  HW_MCG.o [1]
+g_core_clock            0x1fff04b0     0x4  Data  Gb  HW_MCG.o [1]
+g_flash_clock           0x1fff04b8     0x4  Data  Gb  HW_MCG.o [1]
+g_flexbus_clock         0x1fff04bc     0x4  Data  Gb  HW_MCG.o [1]
+i                       0x1fff048c     0x4  Data  Gb  core.o [1]
+j                       0x1fff0498     0x4  Data  Gb  core.o [1]
+judge_road_type         0x00000e65    0x16  Code  Gb  core.o [1]
+key_init_struct         0x1fff6b94    0x14  Data  Gb  Key.o [1]
+led_init_struct_a17     0x1fff6a9c    0x14  Data  Gb  Handsome.o [1]
+led_init_struct_c0      0x1fff6ab0    0x14  Data  Gb  Handsome.o [1]
+led_init_struct_d15     0x1fff6ac4    0x14  Data  Gb  Handsome.o [1]
+led_init_struct_e26     0x1fff6ad8    0x14  Data  Gb  Handsome.o [1]
+left_index              0x1fff6a98     0x4  Data  Gb  core.o [1]
+main                    0x000030d1    0x40  Code  Gb  Overload.o [1]
+motor_PWM_init_struct   0x1fff6888    0x1c  Data  Gb  Control.o [1]
+pit_isr0                0x000019ed    0x2e  Code  Gb  Control.o [1]
+printk                  0x00001b5d   0x396  Code  Gb  printf.o [1]
+printk_mknumstr         0x00001ab3    0x6e  Code  Lc  printf.o [1]
+printk_pad_space        0x00001b3f    0x1e  Code  Lc  printf.o [1]
+printk_pad_zero         0x00001b21    0x1e  Code  Lc  printf.o [1]
+printk_putc             0x00001a89    0x2a  Code  Lc  printf.o [1]
+ret                     0x1fff04ac     0x4  Data  Gb  core.o [1]
+right_index             0x1fff6a94     0x4  Data  Gb  core.o [1]
+road_type               0x1fff0411     0x1  Data  Gb  core.o [1]
+scan_hang               0x1fff0493     0x1  Data  Gb  core.o [1]
+server_PWM_init_struct  0x1fff68a4    0x1c  Data  Gb  Control.o [1]
+should_send             0x1fff6ba8     0x1  Data  Gb  core.o [1]
+should_stop             0x1fff0412     0x1  Data  Gb  core.o [1]
+sprintf                 0x00001ef3    0x28  Code  Gb  printf.o [1]
+stop_line_count         0x1fff0413     0x1  Data  Gb  core.o [1]
+strlen                  0x0000222d    0x16  Code  Gb  stdlib.o [1]
+uart_init_struct        0x1fff0574    0x1c  Data  Gb  Camera.o [1]
+value_hang              0x1fff0494     0x1  Data  Gb  core.o [1]
+
+
+[1] = D:\workspace\LPLD_OSKinetis_V3\project\Overload3\iar\FLASH\Obj
+[2] = command line
+[3] = dl7M_tln.a
+[4] = m7M_tl.a
+[5] = rt7M_tl.a
+[6] = shb_l.a
+
+  12 472 bytes of readonly  code memory
+      72 bytes of readwrite code memory
+     292 bytes of readonly  data memory
+  30 545 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

@@ -1,0 +1,103 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V8.20.2.14835/W32 for ARM       05/Mar/2018  12:19:03
+# Copyright 1999-2017 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\app\tools.c
+#    Command line =  
+#        -f C:\Users\JoyC\AppData\Local\Temp\EWE491.tmp
+#        (D:\workspace\LPLD_OSKinetis_V3\project\Overload\app\tools.c -D
+#        LPLD_K60 -D USE_K60DZ10 -lCN
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\RAM\List -lB
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\RAM\List -o
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\RAM\Obj --no_cse
+#        --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering
+#        --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=None
+#        --dlib_config "D:\Program Files\IAR Systems\Embedded Workbench
+#        8.0\arm\INC\c\DLib_Config_Normal.h" -I
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\app\ -I
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\CPU\
+#        -I
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\common\
+#        -I
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\LPLD\
+#        -I
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\LPLD\HW\
+#        -I
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\LPLD\DEV\
+#        -I
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\LPLD\FUNC\
+#        -I
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\uCOS-II\Ports\
+#        -I
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\uCOS-II\Source\
+#        -I
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\FatFs\
+#        -I
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\FatFs\option\
+#        -I
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\USB\common\
+#        -I
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\USB\driver\
+#        -I
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\USB\descriptor\
+#        -I
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\..\..\..\lib\USB\class\
+#        -Ol -I "D:\Program Files\IAR Systems\Embedded Workbench
+#        8.0\arm\CMSIS\Include\" -D ARM_MATH_CM4)
+#    Locale       =  C
+#    List file    =  
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\RAM\List\tools.lst
+#    Object file  =  
+#        D:\workspace\LPLD_OSKinetis_V3\project\Overload\iar\RAM\Obj\tools.o
+#
+###############################################################################
+
+D:\workspace\LPLD_OSKinetis_V3\project\Overload\app\tools.c
+      1          #include "include.h"
+      2          
+
+   \                                 In section .text, align 2, keep-with-next
+      3          void GPIO_Init(GPIO_Type *ptx,uint32 pin,uint8 dir,uint8 out)
+      4          {
+   \                     GPIO_Init: (+1)
+   \   00000000   0xB085             SUB      SP,SP,#+20
+      5            GPIO_InitTypeDef gpio_init_struct;
+      6            gpio_init_struct.GPIO_PTx = ptx;
+   \   00000002   0x9000             STR      R0,[SP, #+0]
+      7            gpio_init_struct.GPIO_Pins = pin;
+   \   00000004   0x9101             STR      R1,[SP, #+4]
+      8            gpio_init_struct.GPIO_Dir = dir;
+   \   00000006   0xF88D 0x200C      STRB     R2,[SP, #+12]
+      9            gpio_init_struct.GPIO_Output=out;
+   \   0000000A   0xF88D 0x300D      STRB     R3,[SP, #+13]
+     10            gpio_init_struct.GPIO_PinControl = NULL;
+   \   0000000E   0x2000             MOVS     R0,#+0
+   \   00000010   0x9002             STR      R0,[SP, #+8]
+     11          }
+   \   00000012   0xB005             ADD      SP,SP,#+20
+   \   00000014   0x4770             BX       LR               ;; return
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+      20   GPIO_Init
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      22  GPIO_Init
+
+ 
+ 22 bytes in section .text
+ 
+ 22 bytes of CODE memory
+
+Errors: none
+Warnings: 1
